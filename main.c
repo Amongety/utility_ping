@@ -373,7 +373,7 @@ int main(int argc, char *argv[])
 		send(sockfd, send_buf, sizeof(struct ether_header) + sizeof(struct ip) + sizeof(struct icmphdr) + 56, 0);
 		recv(sockfd, recv_buf, 1500, 0);
 		struct ether_header *mac = (struct ether_header*)recv_buf;
-		if(htons(mac->ether_type) == ETHERTYPE_IP && strcmp(mac->ether_shost, PCinfo->ifa_hwaddr.sa_data))
+		//if(htons(mac->ether_type) == ETHERTYPE_IP && strcmp(mac->ether_shost, PCinfo->ifa_hwaddr.sa_data))
 			printf("Mac: %s\n", ether_ntoa((struct ether_addr*)mac->ether_shost));
 
 		identification_ip = rand() % 65536;
